@@ -17,3 +17,7 @@
 
 [functions]
   node_bundler = "esbuild"
+
+[context.production.environment]
+  VITE_TRAIN_DATA_URL = ""
+  VITE_TEST_DATA_URL = ""
