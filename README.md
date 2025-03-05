@@ -1,114 +1,120 @@
-# Python Task Manager
+# Data Analysis Dashboard Suite
 
-A simple command-line task management application built with Python. This project demonstrates fundamental Python programming concepts including:
+This comprehensive data analysis suite includes three interactive dashboards built with Python, Streamlit, and React:
 
-- Object-Oriented Programming
-- File I/O operations
-- JSON data handling
-- Command-line interface design
-- Basic CRUD operations
+## 1. 🚢 Titanic Dataset Analysis
 
-## Features
+An interactive dashboard analyzing the famous Titanic dataset with machine learning predictions.
 
-- Add new tasks with title, description, and optional due date
-- List all tasks with their details
-- Mark tasks as completed
+### Features
+
+- Dataset overview and statistics
+- Survival analysis by various factors
+- Interactive visualizations
+- Machine learning prediction model
+- Real-time survival probability calculator
+
+## 2. ✅ Task Manager
+
+A full-featured task management application for organizing and tracking tasks.
+
+### Features
+
+- Add and manage tasks
+- Set due dates
+- Mark tasks as complete
 - Delete tasks
-- Persistent storage using JSON file
-- Simple command-line interface
+- Filter tasks by status
+- Persistent storage
 
-## How to Run
+## 3. 📈 Stock Market Dashboard
 
-Simply run the Python script:
+Real-time stock market analysis and visualization tool.
 
-```bash
-python task_manager.py
-```
+### Features
 
-## Usage
-
-The application provides a menu-driven interface with the following options:
-
-1. Add Task - Create a new task
-2. List Tasks - View all tasks
-3. Mark Task as Completed - Update task status
-4. Delete Task - Remove a task
-5. Exit - Close the application
-
-## Learning Points
-
-- Python classes and objects
-- Working with JSON files
-- Date and time handling
-- User input validation
-- Data persistence
-- Error handling
-
-# Titanic Dataset Analysis
-
-This interactive dashboard analyzes the famous Titanic dataset using Python and Streamlit. It provides various insights and a machine learning model to predict survival probability.
-
-## Features
-
-1. **Dataset Overview**
-
-   - Basic statistics
-   - Data preview
-   - Feature information
-
-2. **Survival Analysis**
-
-   - Gender distribution
-   - Survival rates by gender
-   - Interactive visualizations
-
-3. **Age Distribution**
-
-   - Age histogram
-   - Age statistics
-   - Survival patterns by age
-
-4. **Passenger Class Analysis**
-
-   - Class distribution
-   - Survival rates by class
-   - Interactive charts
-
-5. **Survival Prediction**
-   - Machine learning model
-   - Feature importance analysis
-   - Interactive prediction tool
+- Live stock price tracking
+- Interactive candlestick charts
+- Trading volume analysis
+- Key statistics display
+- Company information
 
 ## Setup Instructions
 
-1. Download the Titanic dataset from Kaggle:
+1. Install Dependencies:
 
-   - Visit: https://www.kaggle.com/c/titanic/data
-   - Download `train.csv` and `test.csv`
-   - Place both files in the project directory
+```bash
+npm install        # Install Node.js dependencies
+pip install -r requirements.txt  # Install Python dependencies
+```
 
-2. Install required packages:
+2. Environment Variables:
+   Create a `.env` file with:
 
-   ```bash
-   pip install -r requirements.txt
-   ```
+```
+VITE_TRAIN_DATA_URL="your_train_data_url"
+VITE_TEST_DATA_URL="your_test_data_url"
+```
 
-3. Run the application:
-   ```bash
-   streamlit run titanic_analysis.py
-   ```
+3. Running the Applications:
+
+```bash
+npm run dev:titanic  # Run Titanic Analysis
+npm run dev:tasks    # Run Task Manager
+npm run dev:stocks   # Run Stock Dashboard
+npm run dev:all      # Run all applications
+```
+
+## Deployment
+
+The applications are deployed using Netlify for the frontend and Streamlit Cloud for the Python backends.
+
+### Frontend (React)
+
+```bash
+npm run build
+```
+
+The build output will be in the `dist` directory.
+
+### Backend (Streamlit)
+
+Deploy to Streamlit Cloud:
+
+1. Push to GitHub
+2. Connect to Streamlit Cloud
+3. Select the appropriate Python file
+4. Configure environment variables
 
 ## Usage
 
-1. Select different analysis types from the sidebar
-2. Interact with visualizations
-3. Try the survival prediction tool with custom inputs
-4. Explore various aspects of the dataset through interactive charts
+1. Access the dashboards through your browser
+2. Navigate between different analysis sections
+3. Interact with visualizations and controls
+4. Use the prediction tools and filters
 
-## Learning Points
+## Technologies Used
 
-- Data preprocessing
-- Exploratory data analysis
-- Data visualization
-- Machine learning basics
-- Interactive dashboard creation
+- Frontend:
+
+  - React
+  - TypeScript
+  - Tailwind CSS
+  - Vite
+  - Lucide Icons
+
+- Backend:
+  - Python
+  - Streamlit
+  - Pandas
+  - Scikit-learn
+  - Plotly
+  - Seaborn
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request

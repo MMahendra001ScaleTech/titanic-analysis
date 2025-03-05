@@ -6,21 +6,46 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, confusion_matrix
 import seaborn as sns
+import os
+from dotenv import load_dotenv
+import requests
+from io import StringIO
+
+# Load environment variables
+load_dotenv()
 
 # Page config
 st.set_page_config(page_title="Titanic Data Analysis", layout="wide")
 st.title("🚢 Titanic Dataset Analysis")
 
-# Load data
+# Load data from environment variables
 @st.cache_data
 def load_data():
-    train_data = pd.read_csv('train.csv')
-    test_data = pd.read_csv('test.csv')
-    return train_data, test_data
-
-try:
-    train_df, test_df = load_data()
+    train_url = os.getenv('VITE_TRAIN_DATA_URL')
+    test_url = os.getenv('VITE_TEST_DATA_URL')
     
+    try:
+        # Download the files using requests
+        train_response = requests.get(train_url)
+        test_response = requests.get(test_url)
+        
+        # Check if the responses were successful
+        train_response.raise_for_status()
+        test_response.raise_for_status()
+        
+        # Read the CSV data from the response content
+        train_data = pd.read_csv(StringIO(train_response.text))
+        test_data = pd.read_csv(StringIO(test_response.text))
+        
+        return train_data, test_data
+    except Exception as e:
+        st.error(f"Error loading data: {str(e)}")
+        return None, None
+
+# Load data
+train_df, test_df = load_data()
+
+if train_df is not None:
     # Sidebar
     st.sidebar.header("Analysis Options")
     analysis_type = st.sidebar.selectbox(
@@ -162,10 +187,5 @@ try:
                 st.success("This passenger would likely survive! ✨")
             else:
                 st.error("This passenger would likely not survive 😢")
-
-except FileNotFoundError:
-    st.error("""
-    Please download the Titanic dataset from Kaggle and place the files in the same directory:
-    1. Download from: https://www.kaggle.com/c/titanic/data
-    2. Place 'train.csv' and 'test.csv' in the same folder as this script
-    """)
+else:
+    st.error("Failed to load the Titanic dataset. Please check your internet connection and try again.")

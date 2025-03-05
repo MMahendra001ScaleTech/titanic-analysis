@@ -1,10 +1,13 @@
 {
-  "name": "vite-react-typescript-starter",
+  "name": "data-analysis-dashboard",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev:titanic": "python3 -m streamlit run titanic_analysis.py",
+    "dev:tasks": "python3 -m streamlit run web_task_manager.py",
+    "dev:stocks": "python3 -m streamlit run stock_dashboard.py",
+    "dev:all": "python3 -m streamlit run titanic_analysis.py & python3 -m streamlit run web_task_manager.py & python3 -m streamlit run stock_dashboard.py",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
