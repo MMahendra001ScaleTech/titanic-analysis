@@ -1,5 +1,5 @@
 [build]
-  command = "pyenv install 3.9.17 && pyenv global 3.9.17 && npm run build"
+  command = "python --version && pyenv versions && mise settings set python.enabled false && pyenv install --force 3.9.17 && pyenv global 3.9.17 && npm run build"
   publish = "dist"
   functions = "netlify/functions"
 
