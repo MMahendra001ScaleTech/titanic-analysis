@@ -1,11 +1,13 @@
 [build]
-  command = "python --version && pyenv versions && mise settings set python.enabled false && pyenv install --force 3.9.17 && pyenv global 3.9.17 && npm run build"
+  command = "mise settings set python.enabled false && pyenv install --force 3.9.17 && pyenv global 3.9.17 && python --version && npm run build"
   publish = "dist"
   functions = "netlify/functions"
+
 
 [build.environment]
   NODE_VERSION = "20"
   PYTHON_VERSION = "3.9.17"
+  MISE_PYTHON_ENABLED = "false"
   
 
 [[redirects]]
