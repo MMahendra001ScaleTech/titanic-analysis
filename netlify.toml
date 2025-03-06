@@ -1,14 +1,13 @@
 [build]
-  command = "export MISE_PYTHON_ENABLED=false && export PYENV_ROOT=/dev/null && python --version && npm run build"
+  command = "unset MISE_PYTHON_ENABLED && unset PYENV_ROOT && echo 'Using Python:' && python --version && npm run build"
   publish = "dist"
   functions = "netlify/functions"
 
-
 [build.environment]
   NODE_VERSION = "20"
-  PYTHON_VERSION = "3.9.17"
+  PYTHON_VERSION = "3.9"
   MISE_PYTHON_ENABLED = "false"
-  PYENV_ROOT = "/dev/null"
+  PYENV_ROOT = ""
 
 [[redirects]]
   from = "/*"
@@ -25,4 +24,4 @@
 [context.production.environment]
   VITE_TRAIN_DATA_URL = ""
   VITE_TEST_DATA_URL = ""
-  PYTHON_VERSION = "3.9.17"
+  PYTHON_VERSION = "3.9"
