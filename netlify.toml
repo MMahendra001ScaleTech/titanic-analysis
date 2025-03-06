@@ -1,14 +1,12 @@
 [build]
-  command = "mise settings set python.enabled false && pyenv install --force 3.9.17 && pyenv global 3.9.17 && python --version && npm run build"
+  command = "python --version && npm run build"
   publish = "dist"
   functions = "netlify/functions"
-
 
 [build.environment]
   NODE_VERSION = "20"
   PYTHON_VERSION = "3.9.17"
   MISE_PYTHON_ENABLED = "false"
-  
 
 [[redirects]]
   from = "/*"
@@ -25,6 +23,4 @@
 [context.production.environment]
   VITE_TRAIN_DATA_URL = ""
   VITE_TEST_DATA_URL = ""
-  PYTHON_VERSION = "3.9.17" 
-
-
+  PYTHON_VERSION = "3.9.17"
