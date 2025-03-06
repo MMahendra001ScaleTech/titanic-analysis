@@ -1,5 +1,5 @@
 [build]
-  command = "unset MISE_PYTHON_ENABLED && unset PYENV_ROOT && which python && python --version && npm run build"
+  command = "export MISE_PYTHON_ENABLED=false PYENV_ROOT= && echo 'Using Python:' && which python && python --version && npm run build"
   publish = "dist"
   functions = "netlify/functions"
 
