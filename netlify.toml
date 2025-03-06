@@ -21,3 +21,6 @@
 [context.production.environment]
   VITE_TRAIN_DATA_URL = ""
   VITE_TEST_DATA_URL = ""
+  PYTHON_VERSION = "3.9.17" 
+
+
